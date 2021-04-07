@@ -89,7 +89,7 @@ resize = T.Compose([T.ToPILImage(),
 
 def get_cart_location(screen_width):
     world_width = env.x_threshold * 2
-    scale = screen_width / world_width
+    scale = screen_width / world_width 
     return int(env.state[0] * scale + screen_width / 2.0) # 카트 중심점
 
 def get_screen():
@@ -204,7 +204,7 @@ def optimize_model():
         param.grad.data.clamp_(-1, 1)
     optimizer.step()
 
-num_episodes = 2000
+num_episodes = 200000
 for i_episode in range(num_episodes):
     # 환경과 상태 초기화
     env.reset()
