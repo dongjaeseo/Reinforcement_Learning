@@ -1,4 +1,3 @@
-
 def main():
 	global epsilon
 	global log_values
@@ -32,7 +31,8 @@ def main():
 			state = observation
 
 			if done or t == 500:
-				print("episode: {}, score: {}, eps: {}, memory: {}, collisions: {}".format(e, running_rew, epsilon, len(memory), env.collisions))
+				print("episode: {}, score: {}, eps: {}, memory: {}, collisions: {}"\
+                    .format(e, running_rew, epsilon, len(memory), env.collisions))
 				break
 
 			if len(memory) > 32:
@@ -42,7 +42,8 @@ def main():
 		model.save_weights("weights/"+str(e)+'_my_model_weights.h5')
 
 		with open('moves/'+str(e) +'_file.csv', mode='w') as moves_file:
-				employee_writer = csv.writer(moves_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+				employee_writer = csv.writer(moves_file,\
+                     delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 				employee_writer.writerow(log_values)
 
 
@@ -50,3 +51,8 @@ if __name__=="__main__":
     model = create_cnn()
     target_model = create_cnn()
     main()
+
+
+
+
+## 끝
